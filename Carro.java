@@ -29,7 +29,7 @@ public class Carro {
         int capacidadeLivre = tanque.getCapacidade() - tanque.getCombustivelDisponivel();
 
         if (modelo.equals("SUVFlex")) motor.setConsumoFlex(tipoCombustivel);
-        
+
         if (capacidadeLivre < quantidade) {
             tanque.abastece(tipoCombustivel, capacidadeLivre);
             return capacidadeLivre;
@@ -54,6 +54,17 @@ public class Carro {
         if (verificaSePodeViajar(distancia) >= distancia) {
             motor.percorre(distancia);
             tanque.gasta(motor.combustivelNecessario(distancia));
+
+            if(this.modelo.equals("Econo")){
+                if(motor.getQuilometragem() >= 50000){
+                    motor.setConsumo(10);
+                }
+                else{
+                    int reduzConsumo = motor.getQuilometragem()/5000;
+                    motor.setConsumo(motor.getConsumo() - reduzConsumo);
+                }
+            }
+            
             return true;
         }
         return false;

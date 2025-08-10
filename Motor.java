@@ -25,6 +25,10 @@ public class Motor {
         return false;
     }
 
+    public void setConsumo(int consumo) {
+        this.consumo = consumo;
+    }
+
     public TipoCombustivel getTipoMotor(){
         return this.tipoMotor;
     }
