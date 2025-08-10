@@ -13,6 +13,18 @@ public class Motor {
         return this.consumo;
     }
 
+    public boolean setConsumoFlex(TipoCombustivel tipoCombustivel) {
+        if(tipoCombustivel == TipoCombustivel.ALCOOL){
+            this.consumo = 6;
+            return true;
+        }
+        else if (tipoCombustivel == TipoCombustivel.GASOLINA){
+            this.consumo = 8;
+            return true;
+        }
+        return false;
+    }
+
     public TipoCombustivel getTipoMotor(){
         return this.tipoMotor;
     }

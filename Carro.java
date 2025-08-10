@@ -27,6 +27,9 @@ public class Carro {
     // Retorna a quantidade efetivamente abastecida
     public int abastece(TipoCombustivel tipoCombustivel, int quantidade) {
         int capacidadeLivre = tanque.getCapacidade() - tanque.getCombustivelDisponivel();
+
+        if (modelo.equals("SUVFlex")) motor.setConsumoFlex(tipoCombustivel);
+        
         if (capacidadeLivre < quantidade) {
             tanque.abastece(tipoCombustivel, capacidadeLivre);
             return capacidadeLivre;
